@@ -1,0 +1,25 @@
+<!-- Inherit from layout template -->
+{% extends "layout.html" %}
+
+<!-- Override content block in layout -->
+{% block content %}
+
+<h1>{{page_title}}</h1>
+
+<!-- Display movie attributes from movie model -->
+<h2>Movie: {{ movie.id }}</h2>
+<h3>Name: {{ movie.name }}</h3>
+<h4>Rating: {{ movie.rating }}</h3>
+<h4>Year Released: {{ movie.year }}</h3>
+<h4>Description: {{ movie.description }}</h3>
+<h4>Posted by: {{ movie.posted_by }}</h3>
+<h5>Posted on: {{ movie.created_at }}</h3>
+<h5>Last Updated: {{ movie.updated_at }}</h3>
+    
+<h5><a href="{% url 'update_movie' movie.id %}">Edit Movie</a></h5>
+<h5><a href="{% url 'delete_movie' movie.id %}">Delete Movie</a></h5>
+
+<h5></h5>
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+<!-- Inherit from layout template -->
+{% extends "layout.html" %}
+
+<!-- Override content block in layout -->
+{% block content %}
+
+<h1>Courses</h1>
+
+<div>
+    <!-- Create for loop using Jinja -->
+    <!-- Use courses array from view  -->
+    {% for course in courses %}
+        <div>
+        <!-- Variable interpolation with Jinja -->
+        <!-- Get each course attributes and display -->
+            <h5>Course: {{course.id}}</h5>
+            <h5>Name: {{course.name}}</h5>
+            <br>
+            <br>
+        </div>
+        <!-- Unlike python need to end for loop -->
+    {% endfor %}
+</div>
+
+{% endblock content %}
+

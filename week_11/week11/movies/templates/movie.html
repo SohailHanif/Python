@@ -1,0 +1,12 @@
+<!-- Inherit from layout template -->
+{% extends "layout.html" %}
+
+<!-- Override content block in layout -->
+{% block content %}
+
+<h1>{{page_title}}</h1>
+
+<h2>Movie: {{ movie.id }}</h2>
+<h3>Name: {{ movie.name }}</h3>
+
+{% endblock %}

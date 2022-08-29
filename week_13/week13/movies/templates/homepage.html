@@ -1,0 +1,31 @@
+<!-- Inherit from layout template -->
+{% extends "layout.html" %}
+
+<!-- Override content block in layout -->
+{% block content %}
+
+<h1>{{page_title}}</h1>
+
+<div>
+  {% if user.is_authenticated %}
+    <!-- Print user name and capitalize first letter with filter -->
+    <h2>Hi {{ user.username|title }} </h5>
+  {% endif %}
+  
+  <!-- Create for loop using Jinja -->
+  <!-- Use movies from database in context dictionary from view  -->
+  {% for movie in movies %}
+  <div>
+    <h5>Movie {{ movie.id }}:</h5>
+    <!-- Create link to movie page -->
+    <!-- Pass id to lookup movie in view -->
+    <a href="{% url 'movie' movie.id %}">{{movie.name}}</a>
+    <br />
+    <br />
+  </div>
+  <!-- Unlike python need to end for loop -->
+  {% endfor %} 
+
+</div>
+{% endblock %}
+

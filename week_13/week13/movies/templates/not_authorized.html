@@ -1,0 +1,10 @@
+<!-- Inherit from layout template -->
+{% extends "layout.html" %}
+
+<!-- Override content block in layout -->
+{% block content %}
+
+<h2>You are not authorized to update/delete this movie<h2>
+<h3>Can only update/delete movies you have posted</h3>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends 'layout.html' %} {% block content %}
+<main class="create-movie layout">
+  <div class="container">
+    <div class="layout__boxTitle">
+        <a href="{{request.META.HTTP_REFERER}}">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="32" height="32"
+                viewBox="0 0 32 32">
+                <title>arrow-left</title>
+                <path d="M13.723 2.286l-13.723 13.714 13.719 13.714 1.616-1.611-10.96-10.96h27.625v-2.286h-27.625l10.965-10.965-1.616-1.607z"></path>
+            </svg>
+        </a>
+        <h3>Back</h3>
+    </div>
+    <div class="layout__box">
+      <h3>Create/Update Movie</h3>
+    </div>
+  </div>
+  <div class="layout__body">
+    <form class="form" action="" method="POST">
+      {% csrf_token %}
+
+      <!-- Display form element generated from MovieForm-->
+      <div class="form__group">
+        <label for="movie_name">Movie Name</label>
+        {{form.name}}
+      </div>
+
+      
+      <div class="form__group">
+        <label for="movie_description">Movie Description</label>
+        {{form.description}}
+      </div>
+
+      <div class="form__group">
+        <label for="movie_year">Movie Year</label>
+        {{form.year}}
+      </div>
+
+      <div class="form__group">
+        <label for="movie_rating">Movie Rating</label>
+        {{form.rating}}
+      </div>
+
+      <div class="form__action">
+        <button class="btn btn--main" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</main>
+{% endblock content %}

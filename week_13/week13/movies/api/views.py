@@ -31,7 +31,7 @@ def getMovies(request):
 @api_view(['GET'])
 def getMovie(request, pk):
     # Queryset for movie with matching id
-    room = Movie.objects.get(id=pk)
+    movie = Movie.objects.get(id=pk)
     # Serialize queryset
-    serializer = MovieSerializer(room, many=False)
+    serializer = MovieSerializer(movie, many=False)
     return Response(serializer.data)

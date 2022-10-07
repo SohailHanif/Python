@@ -1,114 +1,102 @@
-# Declare function
+from random import randint
+from math import *
+from termcolor import colored
+
 def my_func():
     print("apple")
     print("banana")
     print("orange")
 
-# Call function
-my_func()
-
-# Function that accepts 1 argument
 def print_with_exclamation(word):
-    print(f"{word}!")
+    print(f"{word}!!!!!")
 
-# Call function with different arguments
-print_with_exclamation("Hello")
-print_with_exclamation("apple")
-print_with_exclamation("python")
-
-# Create function that accepts 2 arguments
-def print_sum(x, y):
-    print(f"Sum of {x} and {y} is {x + y}")
-
-print_sum(5, 8)
-
-def print_var(x):
+def print_inc_num(x):
     x += 1
     print(x)
 
-print_var(7)
-# Trying to access variable outside scope
-# print(x)
-
-# Function that returns value
 def max(x, y):
-    if x >= y:
+    if x>y:
         return x
     else:
         return y
 
-# Print value returned from function
-print(max(4, 7))
-# Assign value to variable
-z = max(8, 5)
-print(z)
+def multiply(x,y):
+    return x*y
 
-def add_numbers(x, y):
-    total = x + y
-    return total
-    print("This won't be printed")
-
-print(add_numbers(4, 5))
-
-def multiply(x, y):
-    return x * y
-a = 4
-b = 7
-# Assign function to var
-operation = multiply
-print(type(operation))
-print(operation(a, b))
-
-def add(x, y):
-     return x + y
-# Function that accepts function as parameter
 def do_twice(func, x, y):
-      return func(func(x, y), func(x, y))
-a = 5
-b = 10
+    x += 1
+    y += 2
+    
+    print(multiply(func(x, y), func(x, y)))
 
-print(do_twice(add, a, b))
-
-# Create lambda that double the argument entered
 double = lambda x: x * 2
-print(double(5))
+triple = lambda x: x * 3
+add = lambda x, y, z, a, b: x + y + z+ a +b
 
-# Lambda that adds 2 numbers together
-f = lambda x, y: x + y
-print(f(1, 1))
+numbers = [ 1, 3, 10, 20, 4, 6, 2]
+new_numbers = list(map(lambda num: num * 5, numbers))
+even_numbers = list(filter(lambda num: (num % 2 == 0), numbers))
 
-numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-# Call map with lambda as argument
-new_numbers = list(map(lambda x: x * 2, numbers))
-print(new_numbers)
+print(colored("Hello", "green"), colored("World", "blue"))
+# print(pi)
+# print(sqrt(100))
 
-# Filter function to filter for even number using lambda
-even_numbers = list(filter(lambda x: (x % 2 == 0), numbers))
-print(even_numbers)
+# for i in range(10):
+#     print(randint(10, 100))
 
-# Import random module
-import random
 
-for i in range(5):
-    # Get random number using module
-    value = random.randint(1, 6)
-    print(value)
+# print(numbers)
+# print(new_numbers)
+# print(even_numbers)
 
-# Import variable instead of entire module
-from math import pi
-print(pi)
+# print(double(5))
+# print(triple(5))
+# print(add(10, 20, 4, 6, 2))
 
-# Import multiple variables/functions from module
-from math import pi, sqrt
-from random import *
 
-print(sqrt(81))
-print(randint(10, 100))
 
-# Use rename on import
-from math import sqrt as square_root
-print(square_root(100))
 
-# Import module installed using pip
-from termcolor import colored
-print (colored('hello', 'blue'), colored('world', 'green'))
+# a = 2
+# b = 3
+# do_twice(multiply, a, b)
+# print(a)
+# print(b)
+
+
+
+# operation = multiply
+# print(multiply)
+# print(operation)
+# print(type(operation))
+# print(operation(a,b))
+# largest_num = max(a, b)
+
+
+# print_with_exclamation("Python")
+# print_with_exclamation("is")
+# print_with_exclamation("fun")
+
+# x = 5
+# print_inc_num(x)
+# print(x)
+
+
+wins = 10
+losess= 1
+
+def reset_wins():
+    global wins
+    global losess
+    wins = 0
+    losess = 0
+
+print(wins)
+reset_wins()
+print(wins)
+
+def generate_random_num():
+    min_num = int(input("Enter min num"))
+    max_num = int(input("Enter min num"))
+
+    rand_num = randint(min_num, max_num)
+    return rand_num
